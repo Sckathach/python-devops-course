@@ -4,7 +4,7 @@ import argparse
 import subprocess
 
 # Make sure to use absolute path when calling the script from different places
-ABS_PATH = os.path.abspath(os.path.dirname(__file__))
+ABS_PATH = os.path.dirname(__file__)
 CONFIG_FILE = "pyproject.toml"
 
 # Create the parser to use the script with ou without a flag
@@ -48,5 +48,5 @@ def update_pyproject_dependencies(path: str) -> None:
         toml.dump(pyproject_data, file)
 
 
-def __init__():
+if __name__ == "__main__":
     update_pyproject_dependencies(args.config)
