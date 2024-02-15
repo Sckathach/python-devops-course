@@ -9,10 +9,15 @@ init:
 	pip install -r requirements.txt
 
 test:
-	pytest
+	coverage run -m pytest
 #	@if [ $$? -eq 0 ]; then \
 #		$(MAKE) -s build; \
 #	fi
+	coverage report
+
+testx: test
+	coverage html
+	firefox htmlcov/index.html
 
 format:
 	black .

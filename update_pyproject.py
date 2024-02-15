@@ -2,10 +2,17 @@ import os
 import toml
 import argparse
 import subprocess
+from dotenv import dotenv_values
 
 # Make sure to use absolute path when calling the script from different places
 ABS_PATH = os.path.dirname(__file__)
 CONFIG_FILE = "pyproject.toml"
+
+# Load .env config
+config = {
+    **dotenv_values(".env.shared"),
+    **os.environ
+}
 
 # Create the parser to use the script with ou without a flag
 parser = argparse.ArgumentParser(description="Update pyproject.toml")

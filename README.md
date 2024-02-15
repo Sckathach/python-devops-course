@@ -34,3 +34,17 @@ The structure can be obtained with `tree --gitignore -a --matchdirs -I .git`.
 ├── main.py
 └── README.md
 ```
+
+
+## Flask 
+Create a token (flask secret key) in `.env` at the root of the project:
+```dotenv
+FLASK_SECRET_KEY=your-secret-key
+```
+
+You can then modify it when calling the script: 
+```shell
+python api.py FLASK_SECRET_KEY=my-super-key
+```
+
+Or directly in the environment (Docker, Kubernetes, etc.).
